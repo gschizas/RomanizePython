@@ -46,5 +46,5 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Text Processing'
     ],
-    test_suite="tests"
+    test_suite="tests", requires=['colorama']
 )
