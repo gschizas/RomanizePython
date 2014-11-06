@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function
-
 __author__ = 'George Schizas'
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 
 """
 This is the "romanize" module.
@@ -99,15 +97,3 @@ def romanize(greek_text):
     return result
 
 
-def main():
-    import sys
-
-    if len(sys.argv) > 1:
-        print(romanize(' '.join(sys.argv[1:])))
-    else:
-        words = sys.stdin.read()
-        print(romanize(words))
-
-
-if __name__ == "__main__":
-    main()
