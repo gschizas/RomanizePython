@@ -25,6 +25,7 @@ class TestCore(unittest.TestCase):
                          u'Oute to angouri oute i agkinara grafontai me nx')
         self.assertEqual(romanize(u'ΟΥΡΑΝΟΣ Ουρανός ουρανός οϋρανός'), u'OURANOS Ouranos ouranos oyranos')
         self.assertEqual(romanize(u'Έχω ελέγξει το 100% της μεθόδου'), u'Echo elenxei to 100% tis methodou')
+        self.assertEqual(romanize(u'Εύζωνοι'), u'Evzonoi')
 
 
 class TestShell(unittest.TestCase):
