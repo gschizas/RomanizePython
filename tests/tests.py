@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 import os
 import subprocess
 import sys
 import unittest
 from romanize import romanize
 import colorama
-
-
+from hexdump import hexdump
 
 
 class TestCore(unittest.TestCase):
@@ -33,12 +34,22 @@ class TestShell(unittest.TestCase):
         colorama.init(autoreset=True)
         test_text = u"Γιώργος Σχίζας"
         # print(sys.executable)
-        cmd_line = u'"' + sys.executable + '" romanize'
-        print(cmd_line)
-        p = subprocess.Popen(cmd_line, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd='.')
-        p.stdin.write(test_text.encode())
-        result = p.stdout.read()
-        error_data = p.stderr.read()
-        print(colorama.Fore.RED + error_data)
-        print(colorama.Fore.YELLOW + result.decode('cp737', errors='replace'))
+        # cmd_line = u'"' + sys.executable + '" romanize'
+        #print('>>>',cmd_line)
+        p = subprocess.Popen([sys.executable, '-m', 'romanize'],
+                             stdin=subprocess.PIPE,
+                             stdout=subprocess.PIPE,
+                             stderr=subprocess.PIPE,
+                             cwd=os.getcwd())
+
+        print(p.args)
+        print(vars(p))
+        result = p.communicate(test_text.encode())
+        print()
+        for result_line in result:
+            hexdump(result_line)
+        print()
+        #error_data = p.stderr.read()
+        #print(colorama.Fore.RED, error_data, sep='')
+        #print(colorama.Fore.YELLOW, result.decode('cp737', errors='replace'), sep='')
         self.assertEqual(u'Giorgos Schizas', result)
