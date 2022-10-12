@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 __author__ = 'George Schizas'
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 
 """
 This is the "romanize" module.
@@ -97,3 +97,12 @@ def romanize(greek_text):
     return result
 
 
+def cli():
+    import sys
+    if len(sys.argv) > 1:
+        print(romanize(' '.join(sys.argv[1:])))
+    else:
+        for line in sys.stdin:
+            if type(line) is bytes:
+                line = line.decode(sys.stdin.encoding)
+            print(romanize(line))
