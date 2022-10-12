@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 __author__ = 'George Schizas'
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 
 """
 This is the "romanize" module.
