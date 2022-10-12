@@ -97,3 +97,12 @@ def romanize(greek_text):
     return result
 
 
+def cli():
+    import sys
+    if len(sys.argv) > 1:
+        print(romanize(' '.join(sys.argv[1:])))
+    else:
+        for line in sys.stdin:
+            if type(line) is bytes:
+                line = line.decode(sys.stdin.encoding)
+            print(romanize(line))
