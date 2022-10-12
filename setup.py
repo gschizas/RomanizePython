@@ -46,5 +46,10 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Text Processing'
     ],
-    test_suite="tests", requires=['colorama']
+    test_suite="tests", requires=['colorama'],
+    entry_points={
+        'console_scripts': [
+            'romanize=romanize:cli',
+        ],
+    },
 )
