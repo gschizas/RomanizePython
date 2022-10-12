@@ -18,3 +18,8 @@ You can also use it as a standalone module:
 Or use it as a filter:
 
     python romanize.py < text_in_cp1253.txt
+
+It's also installed as a standalone script
+
+    romanize Ελευθερία ή Θάνατος
+    romanize < text_in_cp1253.txt
